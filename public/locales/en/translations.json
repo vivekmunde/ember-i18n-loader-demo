@@ -1,0 +1,26 @@
+{
+    "showIn.fr":"Show in French",
+    "readMe": {
+        "summary": "This [Ember.js](https://emberjs.com) addon offers a wrapper service `i18n-loader` on top of the [ember-i18n](https://github.com/jamesarosen/ember-i18n) addon  to load the translation on demand or live using the [jQuery AJAX](http://api.jquery.com/jquery.ajax/). It extends the sample code available at [ember-i18n:Fetching-Translations-Live](https://github.com/jamesarosen/ember-i18n/wiki/Example:-Fetching-Translations-Live).",
+        "loadI18nOnDemandTitle": "Loading translations on demand",
+        "loadI18nOnDemandPara1": "Multilingual large scale apps do not require to load translations for all supported languages as the app uses only one language at a time. In some cases, the complete set of translations for one language can be a heavy load task for initial load, as only current/initial screen/route translations are necessary, which can cause more delays on app load time. So its preferable to load the translations for only one language or in chunks (for single language) as they are required.",
+        "loadI18nOnDemandPara2": "The translations can be loaded in the `beforeModel()` hook of the respective routes.",
+        "loadTitle": ".load(ajaxSettings)",
+        "loadPara1": "`i18n-loader` service exposes a method `load(ajaxSettings)` to load the translations.",
+        "loadSubTitle1": "**`ajaxSettings`**",
+        "loadPara2": "A JSON object holding the AJAX settings for the i18n resource. This object must have at least `url` property set pointing to the location of i18n resource. The JSON object passed gets merged into the default AJAX settings and therefore the default AJAX settings can be overridden.",
+        "loadPara3": "Default AJAX settings which can be overridden:",
+        "loadPara4": "The caller can pass:",
+        "loadSubTitle2": "**Promise Based Response**",
+        "loadPara5": "The service `i18n-loader` returns a promise, which gets resolved if the translations are loaded successfully otherwise rejected on any error.",
+        "loadSubTitle3": "**Caching**",
+        "loadPara6": "The service `i18n-loader` remembers the translation urls to avoid loading the same translations for consequent requests for same url.<br>Note: The service does not remember the translations key already loaded, instead it remembers the urls of the translation files like `/locales/en/abc.route.translations.json`.",
+        "exampleTitle": "Example",
+        "examplePara1": "The locales are stored under the `public/locales` directory of the app.",
+        "examplePara2": "Or further dividing them into smaller chunks.",
+        "examplePara3": "The app can detect users's expected language in the application route and loads the translations.",
+        "examplePara4": "*routes/application.js*",
+        "cautionTitle": "Caution",
+        "cautionPara1": "**AJAX Approach**: Browsers do not allow cross domain resource downloads through AJAX unless the server allows the requests through [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) settings."
+    }
+}

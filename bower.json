@@ -1,0 +1,21 @@
+{
+  "name": "ember-i18n-loader-demo",
+  "description": "Small description for ember-i18n-loader-demo goes here",
+  "main": "",
+  "authors": [
+    "Vivek Munde"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vivekmunde/ember-i18n-loader-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "showdown": "^1.7.1"
+  }
+}

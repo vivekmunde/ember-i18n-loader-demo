@@ -1,11 +1,25 @@
 /* eslint-env node */
 'use strict';
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app'),
+  path = require('path'),
+  Funnel = require('broccoli-funnel'),
+  mergeTrees = require('broccoli-merge-trees'),
+  writeFile = require('broccoli-file-creator'),
+  md5 = require('md5');
 
-module.exports = function(defaults) {
+const IS_PRODUCTION = EmberApp.env() === 'production';
+
+module.exports = function (defaults) {
+
+  // Create a md5 hash for fingerprinting
+  const fingerprintHash = md5(Date.now());
+
   let app = new EmberApp(defaults, {
-    // Add options here
+    fingerprint: {
+      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'json'],
+      customHash: fingerprintHash //use a single hash for all assets
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -21,5 +35,28 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  // ------------------------------------------------------------------------------------
+  // Bootstrap
+  // ------------------------------------------------------------------------------------
+  app.import(`${app.bowerDirectory}/bootstrap/dist/css/bootstrap.css`);
+  app.import(`${app.bowerDirectory}/bootstrap/dist/css/bootstrap.theme.css`);
+  app.import(`${app.bowerDirectory}/bootstrap/dist/js/bootstrap.theme.css`);
+  var fontsTree = new Funnel(path.join(app.bowerDirectory, 'bootstrap'), {
+    srcDir: 'fonts',
+    include: ['**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot', '**/*.svg'],
+    destDir: 'fonts'
+  });
+
+  // ------------------------------------------------------------------------------------
+  // Showdown
+  // ------------------------------------------------------------------------------------
+  app.import(`${app.bowerDirectory}/showdown/dist/showdown.js`);
+
+  // ------------------------------------------------------------------------------------
+  // Create a asset-fingerprint.js file which holds the fingerprintHash value 
+  // This hash value is used by all the asset loaders to load the assets on-demand 
+  // ------------------------------------------------------------------------------------
+  var assetMapTree = writeFile('./assets/assets-fingerprint.js', '(function(_window){ _window.DEMO_ASSET_FINGERPRINT_HASH = "' + (IS_PRODUCTION ? fingerprintHash : '') + '"; })(window);');
+
+  return app.toTree(mergeTrees([assetMapTree, fontsTree]));
 };

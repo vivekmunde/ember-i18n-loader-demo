@@ -1,0 +1,87 @@
+<br>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+    <button class="btn btn-default btn-block" {{action "toggleLocale"}}>{{t buttonI18nKey}}</button>
+  </div>
+</div>
+<br>
+<br>
+
+{{markdown-text (t "readMe.summary")}}
+<h3>{{markdown-text (t "readMe.loadI18nOnDemandTitle")}}</h3>
+{{markdown-text (t "readMe.loadI18nOnDemandPara1")}}
+{{markdown-text (t "readMe.loadI18nOnDemandPara2")}}
+<pre><code>i18nLoader: Ember.inject.service('i18n-loader'),
+beforeModel() {
+  return this.get('i18nLoader).load('locales/en/translations.json');
+}
+</code></pre>
+
+<h2>{{markdown-text (t "readMe.loadTitle")}}</h2>
+{{markdown-text (t "readMe.loadPara1")}}
+<h4>{{markdown-text (t "readMe.loadSubTitle1")}}</h4>
+{{markdown-text (t "readMe.loadPara2")}}
+{{markdown-text (t "readMe.loadPara3")}}
+<pre><code>{
+  cache: true,
+  dataType: 'json',
+  type: 'GET'
+}
+</code></pre>
+{{markdown-text (t "readMe.loadPara4")}}
+<pre><code>{
+  url: '/locales/en/translations.json',
+  headers: {
+    "Authorization": "bearer aXVmZ2hpdzg3eWZ1ZndmdWdiNDU1c29pdmpic29nNDU2NGZzYmVpZmhzaWY2NnVzZGhiaWpzaGI0NTZmdWdo"
+  }
+}
+</code></pre>
+<h4>{{markdown-text (t "readMe.loadSubTitle2")}}</h4>
+{{markdown-text (t "readMe.loadPara5")}}
+<h4>{{markdown-text (t "readMe.loadSubTitle3")}}</h4>
+{{markdown-text (t "readMe.loadPara6")}}
+
+<h2>{{markdown-text (t "readMe.exampleTitle")}}</h2>
+{{markdown-text (t "readMe.examplePara1")}}
+<pre><code>public
+|__locales
+   |__de
+      |__translations.json
+   |__en
+      |__translations.json	
+   |__fr
+      |__translations.json
+</code></pre>
+{{markdown-text (t "readMe.examplePara2")}}
+<pre><code>public
+|__locales
+   |__de
+      |__common.translations.json
+      |__product-management.translations.json
+      |__user-administration.translations.json
+   |__en
+      |__common.translations.json
+      |__product-management.translations.json
+      |__user-administration.translations.json
+   |__fr
+      |__common.translations.json
+      |__product-management.translations.json
+      |__user-administration.translations.json
+</code></pre>
+{{markdown-text (t "readMe.examplePara3")}}
+{{markdown-text (t "readMe.examplePara4")}}
+<pre><code>i18n: Ember.inject.service(),
+i18nLoader: Ember.inject.service('i18n-loader'),
+beforeModel() {
+  // find the locale
+  const locale = navigator.language;
+  // set the i18n locale
+  this.set('i18n.locale', locale);
+  // load translations
+  return this.get('i18nLoader').load(`/locales/${locale}/translations.json`);
+}
+</code></pre>
+
+<h2>{{markdown-text (t "readMe.cautionTitle")}}</h2>
+{{markdown-text (t "readMe.cautionPara1")}}
+<br>

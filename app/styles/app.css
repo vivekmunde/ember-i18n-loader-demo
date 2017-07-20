@@ -1,0 +1,7 @@
+.app-loading {
+    padding: 100px 50px;
+}
+.app-loading > i.glyphicon {
+    font-size: 40px;
+    color: #aaa;
+}

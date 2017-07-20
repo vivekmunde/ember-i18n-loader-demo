@@ -1,0 +1,26 @@
+{
+    "showIn.en":"Afficher en anglais",
+    "readMe": {
+        "summary": "Cet addon [Ember.js] (https://emberjs.com) offre un service wrapper `i18n-loader` sur le [ember-i18n] (https://github.com/jamesarosen/ember-i18n) addon Pour charger la traduction sur demande ou vivre en utilisant [jQuery AJAX] (http://api.jquery.com/jquery.ajax/). Il étend le code exemple disponible à [ember-i18n: Fetching-Translations-Live] (https://github.com/jamesarosen/ember-i18n/wiki/Example:-Fetching-Translations-Live).",
+        "loadI18nOnDemandTitle": "Chargement des traductions sur demande",
+        "loadI18nOnDemandPara1": "Les applications multilingues à grande échelle ne nécessitent pas de chargement de traductions pour toutes les langues supportées car l'application utilise une seule langue à la fois. Dans certains cas, l'ensemble complet des traductions pour une langue peut être une tâche de chargement lourd pour la charge initiale, car seules des traductions d'impression / écran / courrier sont nécessaires, ce qui peut entraîner d'autres retards sur le temps de chargement de l'application. Il est donc préférable de charger les traductions pour une seule langue ou en morceaux (pour une seule langue) car elles sont requises.",
+        "loadI18nOnDemandPara2": "Les traductions peuvent être chargées dans le crochet `beforeModel ()` des routes respectives.",
+        "loadTitle": ".load(ajaxSettings)",
+        "loadPara1": "Le service `i18n-loader` expose une méthode` load (ajaxSettings) `pour charger les traductions.",
+        "loadSubTitle1": "**`ajaxSettings`**",
+        "loadPara2": "Un objet JSON contenant les paramètres AJAX pour la ressource i18n. Cet objet doit avoir au moins la propriété `url` définie indiquant l'emplacement de la ressource i18n. L'objet JSON passé est fusionné aux paramètres AJAX par défaut et les paramètres AJAX par défaut peuvent être remplacés.",
+        "loadPara3": "Paramètres AJAX par défaut qui peuvent être annulés:",
+        "loadPara4": "L'appelant peut passer:",
+        "loadSubTitle2": "**Réponse basée sur la promesse**",
+        "loadPara5": "Le service `i18n-loader` renvoie une promesse qui est résolu si les traductions sont chargées avec succès, sinon elles ont été rejetées pour toute erreur.",
+        "loadSubTitle3": "**Mise en cache**",
+        "loadPara6": "Le service «i18n-loader» se souvient des URL de traduction pour éviter de charger les mêmes traductions pour les demandes conséquentes pour la même URL. Remarque: Le service ne se souvient pas de la clé de traduction déjà chargée, mais il se souvient des URL des fichiers de traduction comme `/ Locales/fr/abc.route.translations.json`.",
+        "exampleTitle": "Exemple",
+        "examplePara1": "Les paramètres régionaux sont stockés dans le répertoire `public/locales` de l'application.",
+        "examplePara2": "Ou en les divisant davantage en petits morceaux.",
+        "examplePara3": "L'application peut détecter le langage attendu de l'utilisateur dans la route de l'application et charger les traductions.",
+        "examplePara4": "*routes/application.js*",
+        "cautionTitle": "Mise en garde",
+        "cautionPara1": "**Approche AJAX**: Les navigateurs ne permettent pas les téléchargements de ressources multi-domaines via AJAX à moins que le serveur ne permette les requêtes via [CORS] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) paramètres."
+    }
+}
