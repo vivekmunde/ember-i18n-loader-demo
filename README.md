@@ -1,7 +1,6 @@
 # ember-i18n-loader-demo
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This demo implements the live / lazy loading of translations for English & French locales using [ember-i18n](https://github.com/jamesarosen/ember-i18n) & [ember-i18n-loader](https://github.com/vivekmunde/ember-i18n-loader).
 
 ## Prerequisites
 
