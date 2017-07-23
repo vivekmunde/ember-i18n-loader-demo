@@ -36,7 +36,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-i18n": "^5.0.2",
     "ember-i18n-inject": "0.0.2",
-    "ember-i18n-loader": "git+https://github.com/vivekmunde/ember-i18n-loader.git",
+    "ember-i18n-loader": "^0.1.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.0",
